@@ -1,4 +1,10 @@
 sceneSetups:
+<<<<<<< HEAD
+=======
+- path: Assets/CarLevel.unity
+  isLoaded: 0
+  isActive: 0
+>>>>>>> d943711359fd6bd6fad3e06264aaa86237ce67a3
 - path: Assets/Menu.unity
   isLoaded: 1
   isActive: 1
