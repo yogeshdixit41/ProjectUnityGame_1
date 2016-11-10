@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Simple Car Controller based on Unity's official tutorial, but cleaned up
@@ -97,15 +98,15 @@ public class CarController : MonoBehaviour
 
     public void OnGUI()
     {
-        Vector3 delta = m_lastPosition - m_curPosition;
-        delta.y = 0; //< This isn't strictly right, we should project away the car's normal.
-        float speedMetersPerSec = delta.magnitude / Time.deltaTime;
+        //Vector3 delta = m_lastPosition - m_curPosition;
+        //delta.y = 0; //< This isn't strictly right, we should project away the car's normal.
+        //float speedMetersPerSec = delta.magnitude / Time.deltaTime;
         
         GUI.color = Color.black;
         GUI.Label(new Rect(40, 40, 200, 200),
-                  string.Format("Speed: {0}", Mathf.FloorToInt(speedMetersPerSec * 2.23694f)));
-        GUI.Label(new Rect(40, 60, 200, 200),
-                  string.Format("Lap: {0}", m_lapCount));
+                  string.Format("Health: {0}", playerHealth));
+        //GUI.Label(new Rect(40, 60, 200, 200),
+                  //string.Format("Lap: {0}", m_lapCount));
     }
 
     public void OnTriggerEnter(Collider other)
@@ -234,9 +235,27 @@ public class CarController : MonoBehaviour
         newQuestion2.optionC = "10989";
         newQuestion2.optionD = "None";
 
+        Question newQuestion3 = new Question();
+        newQuestion3.questionText = "Best pizza place ?";
+        newQuestion3.answer = "D";
+        newQuestion3.optionA = "Pizza Hut";
+        newQuestion3.optionB = "Papa John's";
+        newQuestion3.optionC = "Pizza My Heart";
+        newQuestion3.optionD = "Domino's";
+
+        Question newQuestion4 = new Question();
+        newQuestion4.questionText = "What's the color of your car?";
+        newQuestion4.answer = "B";
+        newQuestion4.optionA = "Black";
+        newQuestion4.optionB = "Red";
+        newQuestion4.optionC = "White";
+        newQuestion4.optionD = "Green";
+
         questionList.Add(newQuestion);
         questionList.Add(newQuestion1);
         questionList.Add(newQuestion2);
+        questionList.Add(newQuestion3);
+        questionList.Add(newQuestion4);
     }
 
     public void displayQuestion()
@@ -251,12 +270,18 @@ public class CarController : MonoBehaviour
             formattedText = formattedText + "A : " + questionObject.optionA + "  ";
             formattedText = formattedText + "B : " + questionObject.optionB + "\n  ";
             formattedText = formattedText + "C : " + questionObject.optionC + "  ";
-            formattedText = formattedText + "D : " + questionObject.optionD ;
+            formattedText = formattedText + "D : " + questionObject.optionD;
 
             Debug.Log(formattedText);
 
             questionTextObject.text = formattedText;
             currentAnswer = questionObject.answer;
+        }
+        else
+        {
+            //next level
+            questionTextObject.text = "Nice Job. Next Level";
+            //load next scene
         }
         
     }
@@ -265,11 +290,24 @@ public class CarController : MonoBehaviour
     {
         if (!playersAnswer.Equals(currentAnswer))
         {
-            //decreaseHealth;
-            Debug.Log("Wrong answer");
+            if (playerHealth > 0)
+            {
+                playerHealth = playerHealth - 50;
+                if (playerHealth <= 0)
+                { 
+                    Debug.Log("Gameover");
+                    questionTextObject.text = "Game Over";
+                    Destroy(this.gameObject);
+                    SceneManager.LoadScene(0);
+                }
+
+            }
+                
+            //Debug.Log("Wrong answer");
         }
         else
         {
+            questionTextObject.text = "Right Answer";
             Debug.Log("Right answer");
         }
     }
