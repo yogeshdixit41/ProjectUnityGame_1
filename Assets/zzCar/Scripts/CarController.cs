@@ -275,6 +275,70 @@ public class CarController : MonoBehaviour
         newQuestion7.optionC = "Unity";
         newQuestion7.optionD = "CryEngine";
 
+		Question newQuestion8 = new Question();
+        newQuestion8.questionText = "At what temperature are Fahrenheit and Celsius the same?";
+        newQuestion8.answer = "D";
+        newQuestion8.optionA = "0";
+        newQuestion8.optionB = "92";
+        newQuestion8.optionC = "50";
+        newQuestion8.optionD = "-40";
+
+        Question newQuestion9 = new Question();
+        newQuestion9.questionText = "How many pounds of pressure do you need to rip off your ear?";
+        newQuestion9.answer = "A";
+        newQuestion9.optionA = "7";
+        newQuestion9.optionB = "2";
+        newQuestion9.optionC = "11";
+        newQuestion9.optionD = "17";
+
+        Question newQuestion10 = new Question();
+        newQuestion10.questionText = "Every year, over 8,800 people injure themselves with what apparently harmless, tiny object?";
+        newQuestion10.answer = "C";
+        newQuestion10.optionA = "Pencil";
+        newQuestion10.optionB = "Toothbrush";
+        newQuestion10.optionC = "Toothpick";
+        newQuestion10.optionD = "Earphones";
+
+        Question newQuestion11 = new Question();
+        newQuestion11.questionText = "Which of the following is the longest running American animated TV show?";
+        newQuestion11.answer = "B";
+        newQuestion11.optionA = "Rugrats";
+        newQuestion11.optionB = "The Simpsons";
+        newQuestion11.optionC = "TV Funhouse";
+        newQuestion11.optionD = "Suits";
+
+        Question newQuestion12 = new Question();
+        newQuestion12.questionText = "Coulrophobia means fear of what?";
+        newQuestion12.answer = "D";
+        newQuestion12.optionA = "Old People";
+        newQuestion12.optionB = "Sacred Things";
+        newQuestion12.optionC = "Cats";
+        newQuestion12.optionD = "Clowns";
+
+        Question newQuestion13 = new Question();
+        newQuestion13.questionText = "In which country is Christmas celebrated in the Summer?";
+        newQuestion13.answer = "A";
+        newQuestion13.optionA = "Australia";
+        newQuestion13.optionB = "Russia";
+        newQuestion13.optionC = "South Africa";
+        newQuestion13.optionD = "Greenland";
+
+        Question newQuestion14 = new Question();
+        newQuestion14.questionText = "In the famous TV series Star Trek, who is the captain of the Starship Enterprise?";
+        newQuestion14.answer = "B";
+        newQuestion14.optionA = "Spock";
+        newQuestion14.optionB = "Jim Kirk";
+        newQuestion14.optionC = "Scotty";
+        newQuestion14.optionD = "Bones";
+                           
+        Question newQuestion15 = new Question();
+        newQuestion15.questionText = "In the A-Team movie, Mr. T had a fear of ...?";
+        newQuestion15.answer = "C";
+        newQuestion15.optionA = "Snakes";
+        newQuestion15.optionB = "Spiders";
+        newQuestion15.optionC = "Flying";
+        newQuestion15.optionD = "Dogs";
+
         questionList.Add(newQuestion);
         questionList.Add(newQuestion1);
         questionList.Add(newQuestion2);
@@ -283,6 +347,15 @@ public class CarController : MonoBehaviour
         questionList.Add(newQuestion5);
         questionList.Add(newQuestion6);
         questionList.Add(newQuestion7);
+        questionList.Add(newQuestion8);
+        questionList.Add(newQuestion9);
+        questionList.Add(newQuestion10);
+        questionList.Add(newQuestion11);
+        questionList.Add(newQuestion12);
+        questionList.Add(newQuestion13);
+        questionList.Add(newQuestion14);
+        questionList.Add(newQuestion15);
+		
     }
 
     public void displayQuestion()
