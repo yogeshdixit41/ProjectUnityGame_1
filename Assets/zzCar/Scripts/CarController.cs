@@ -251,11 +251,38 @@ public class CarController : MonoBehaviour
         newQuestion4.optionC = "White";
         newQuestion4.optionD = "Green";
 
+		Question newQuestion5 = new Question();
+        newQuestion5.questionText = "Who was elected as the President of the USA in 2016?";
+        newQuestion5.answer = "D";
+        newQuestion5.optionA = "Hillary Clinton";
+        newQuestion5.optionB = "Ted Cruz";
+        newQuestion5.optionC = "Bernie Sanders";
+        newQuestion5.optionD = "Donald Trump";
+
+        Question newQuestion6 = new Question();
+        newQuestion6.questionText = "What do you get when you heat a Barbie over a grill?";
+        newQuestion6.answer = "A";
+        newQuestion6.optionA = "Barbeque";
+        newQuestion6.optionB = "Ken";
+        newQuestion6.optionC = "Plastic";
+        newQuestion6.optionD = "None of the above";
+
+        Question newQuestion7 = new Question();
+        newQuestion7.questionText = "What Game Engine was used to construct this game?";
+        newQuestion7.answer = "C";
+        newQuestion7.optionA = "Unreal";
+        newQuestion7.optionB = "Frostbite";
+        newQuestion7.optionC = "Unity";
+        newQuestion7.optionD = "CryEngine";
+
         questionList.Add(newQuestion);
         questionList.Add(newQuestion1);
         questionList.Add(newQuestion2);
         questionList.Add(newQuestion3);
         questionList.Add(newQuestion4);
+        questionList.Add(newQuestion5);
+        questionList.Add(newQuestion6);
+        questionList.Add(newQuestion7);
     }
 
     public void displayQuestion()
