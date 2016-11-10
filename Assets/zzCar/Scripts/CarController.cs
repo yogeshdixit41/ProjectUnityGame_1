@@ -22,8 +22,7 @@ public class CarController : MonoBehaviour
     
 
     private BoxCollider m_carRoot;
-    private Vector3 m_lastPosition;
-    private Vector3 m_curPosition;
+    private Vector3 m_initPosition;
     private int m_recentWaypointIndex;
     private int m_lapCount;
 
@@ -54,6 +53,7 @@ public class CarController : MonoBehaviour
 
         //Debug.Log(availablePositionsArray.Count);
 
+        m_initPosition = transform.position;
         createQuestion();
         displayQuestion();
     }
@@ -89,18 +89,20 @@ public class CarController : MonoBehaviour
         Vector3 euler = m_carRoot.transform.localEulerAngles;
         euler.z = 0;
         m_carRoot.transform.localEulerAngles = euler;
-        
 
-        // For speed display.
-        m_lastPosition = m_curPosition;
-        m_curPosition = m_carRoot.transform.position;
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            transform.position = m_initPosition;
+        }
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+        }
+        
     }
 
     public void OnGUI()
     {
-        //Vector3 delta = m_lastPosition - m_curPosition;
-        //delta.y = 0; //< This isn't strictly right, we should project away the car's normal.
-        //float speedMetersPerSec = delta.magnitude / Time.deltaTime;
         
         GUI.color = Color.black;
         GUI.Label(new Rect(40, 40, 200, 200),
